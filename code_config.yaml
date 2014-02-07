@@ -1,0 +1,6 @@
+docs:
+    pages:
+        builder: raw
+        dir: output
+        name: pages
+        sort: 1
