@@ -98,13 +98,27 @@
                 <div class="large-9 medium-8 columns">
                     <div class="row">
                         <div class="small-12 columns">
-                            <h1>Archives</h1>
+                            <h1>Pygit2</h1>
                         </div>
                     </div>
-	<div class="row">
-		<div class="small-10 columns small-centered">
-		</div>
+<div class="row">
+	<div class="small-12 columns">
+		<h1>libgit2 bindings in Python</h1>
+<p><a href="https://github.com/libgit2/pygit2">pygit2</a>是一个Python的C扩展，实际上
+是<a href="https://github.com/libgit2/libgit2">libgit2</a>的python接口。</p>
+<p>我们自己fork了pygit2的仓库，做了一些上游不愿意接纳的更改，所以Code一直
+用的是自己的<a href="https://github.com/douban/pygit2">douban pygit2</a>。</p>
+<p>跟上游的主要区别：</p>
+<ol>
+<li>把libgit2内嵌到pygit2里面，做了静态编译，不再依赖系统的libgit2版本，方便升级pygit2。</li>
+<li>一直采用最新版本的libgit2，pygit2本身比较稳定，不能及时的使用libgit2最新的方法。</li>
+<li>为了性能写了一些特殊的方法。</li>
+</ol>
+<p>当然，我们也把一些修改推回上游了，并且也及时的跟上游同步。</p>
+<p>Pygit2的git功能依赖libgit2，目前基本的对象API和基础操作API都比较成熟了，整体上的git命令还不成熟。
+如果想用pygit2完全替换git命令还是不行的。不过用来加速WEB应用还是够用的，唯一的遗憾是有些内存泄漏。</p>
 	</div>
+</div>
                 </div>
                 <!-- End Main Content -->
             </div>
