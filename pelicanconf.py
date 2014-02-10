@@ -21,10 +21,11 @@ LINKS = (('Code', '/pages/code.html'),
          ('MC', '/pages/mc.html'),
          ('Ellen', '/pages/ellen.html'),
          ('Pygit2', '/pages/pygit2.html'),
+         ('GPack', '/pages/gpack.html'),
          ('Linguist', '/pages/linguist.html'),
          ('Scanner', '/pages/scanner.html'),
-         ('mikoto', '/pages/mikoto.html'),
-         ('misaka', '/pages/misaka.html'),
+         ('Mikoto', '/pages/mikoto.html'),
+         ('Misaka', '/pages/misaka.html'),
          ('About', '/pages/about.html'),)
 
 # Social widget
