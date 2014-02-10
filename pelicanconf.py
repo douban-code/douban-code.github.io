@@ -19,6 +19,12 @@ TRANSLATION_FEED_ATOM = None
 LINKS = (('Code', '/pages/code.html'),
          ('SQLStore', '/pages/sqlstore.html'),
          ('MC', '/pages/mc.html'),
+         ('Ellen', '/pages/ellen.html'),
+         ('Pygit2', '/pages/pygit2.html'),
+         ('Linguist', '/pages/linguist.html'),
+         ('Scanner', '/pages/scanner.html'),
+         ('mikoto', '/pages/mikoto.html'),
+         ('misaka', '/pages/misaka.html'),
          ('About', '/pages/about.html'),)
 
 # Social widget
