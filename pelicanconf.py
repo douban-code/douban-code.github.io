@@ -19,6 +19,7 @@ TRANSLATION_FEED_ATOM = None
 LINKS = (('Code', '/pages/code.html'),
          ('SQLStore', '/pages/sqlstore.html'),
          ('MC', '/pages/mc.html'),
+         ('Quixote', '/pages/quixote.html'),
          ('Ellen', '/pages/ellen.html'),
          ('Pygit2', '/pages/pygit2.html'),
          ('GPack', '/pages/gpack.html'),
