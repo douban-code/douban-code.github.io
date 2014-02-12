@@ -1,7 +1,7 @@
 Title: Code
 Date: 2014-02-01 08:00
 
-C:Community O:Original D:Developer E:Eldamar
+C: Community O: Original D: Developer E: Eldamar
 
 Code起源于豆瓣内部，豆瓣最开始使用的版本控制系统是svn，当然也尝试过mercurial，最终切换到了git。
 
