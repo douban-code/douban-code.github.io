@@ -1,7 +1,7 @@
 Title: Linguist
 Date: 2014-02-07 18:00
 
-Python Linguist
-===============
+Linguist 是什么
+---------------
 
 Language Savant, Python clone of github/linguist.

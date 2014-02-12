@@ -1,16 +1,16 @@
 Title: MC
 Date: 2014-02-01 08:00
 
-缓存接口mc简介
+缓存接口 mc 简介
 ------------
-缓存是优化系统性能的工具。豆瓣使用[Memcached](http://memcached.org/)作为缓存系统，通过一个单实例的变量作为该系统的访问接口。
+缓存是优化系统性能的工具。豆瓣使用 [Memcached](http://memcached.org/) 作为缓存系统，通过一个单实例的变量作为该系统的访问接口。
 
 访问途径
 -------
 
-要访问缓存，需要使用 `corelib/mc.py` 中的mc变量。mc是类cmemcached.Client的单实例对象。在调用它的模块中，要这样引用它
+mc是类cmemcached.Client的单实例对象。在调用它的模块中，要这样引用它
 
-    from corelib.mc import mc
+    from douban.mc import mc
 
 API
 ---
