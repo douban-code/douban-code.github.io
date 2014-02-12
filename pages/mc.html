@@ -44,6 +44,7 @@
                 <li><a href="/pages/code.html">Code</a></li>
                 <li><a href="/pages/sqlstore.html">SQLStore</a></li>
                 <li><a href="/pages/mc.html">MC</a></li>
+                <li><a href="/pages/quixote.html">Quixote</a></li>
                 <li><a href="/pages/ellen.html">Ellen</a></li>
                 <li><a href="/pages/pygit2.html">Pygit2</a></li>
                 <li><a href="/pages/gpack.html">GPack</a></li>
@@ -75,6 +76,7 @@
                             <li><a href="/pages/code.html">Code</a></li>
                             <li><a href="/pages/sqlstore.html">SQLStore</a></li>
                             <li><a href="/pages/mc.html">MC</a></li>
+                            <li><a href="/pages/quixote.html">Quixote</a></li>
                             <li><a href="/pages/ellen.html">Ellen</a></li>
                             <li><a href="/pages/pygit2.html">Pygit2</a></li>
                             <li><a href="/pages/gpack.html">GPack</a></li>
@@ -105,11 +107,11 @@
                     </div>
 <div class="row">
 	<div class="small-12 columns">
-		<h2>缓存接口mc简介</h2>
-<p>缓存是优化系统性能的工具。豆瓣使用<a href="http://memcached.org/">Memcached</a>作为缓存系统，通过一个单实例的变量作为该系统的访问接口。</p>
+		<h2>缓存接口 mc 简介</h2>
+<p>缓存是优化系统性能的工具。豆瓣使用 <a href="http://memcached.org/">Memcached</a> 作为缓存系统，通过一个单实例的变量作为该系统的访问接口。</p>
 <h2>访问途径</h2>
-<p>要访问缓存，需要使用 <code>corelib/mc.py</code> 中的mc变量。mc是类cmemcached.Client的单实例对象。在调用它的模块中，要这样引用它</p>
-<div class="highlight"><pre><span class="n">from</span> <span class="n">corelib</span><span class="p">.</span><span class="n">mc</span> <span class="n">import</span> <span class="n">mc</span>
+<p>mc是类cmemcached.Client的单实例对象。在调用它的模块中，要这样引用它</p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">douban</span><span class="p">.</span><span class="n">mc</span> <span class="n">import</span> <span class="n">mc</span>
 </pre></div>
 
 

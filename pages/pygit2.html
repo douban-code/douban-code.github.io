@@ -44,6 +44,7 @@
                 <li><a href="/pages/code.html">Code</a></li>
                 <li><a href="/pages/sqlstore.html">SQLStore</a></li>
                 <li><a href="/pages/mc.html">MC</a></li>
+                <li><a href="/pages/quixote.html">Quixote</a></li>
                 <li><a href="/pages/ellen.html">Ellen</a></li>
                 <li><a href="/pages/pygit2.html">Pygit2</a></li>
                 <li><a href="/pages/gpack.html">GPack</a></li>
@@ -75,6 +76,7 @@
                             <li><a href="/pages/code.html">Code</a></li>
                             <li><a href="/pages/sqlstore.html">SQLStore</a></li>
                             <li><a href="/pages/mc.html">MC</a></li>
+                            <li><a href="/pages/quixote.html">Quixote</a></li>
                             <li><a href="/pages/ellen.html">Ellen</a></li>
                             <li><a href="/pages/pygit2.html">Pygit2</a></li>
                             <li><a href="/pages/gpack.html">GPack</a></li>
@@ -105,20 +107,21 @@
                     </div>
 <div class="row">
 	<div class="small-12 columns">
-		<h1>libgit2 bindings in Python</h1>
-<p><a href="https://github.com/libgit2/pygit2">pygit2</a>是一个Python的C扩展，实际上
-是<a href="https://github.com/libgit2/libgit2">libgit2</a>的python接口。</p>
-<p>我们自己fork了pygit2的仓库，做了一些上游不愿意接纳的更改，所以Code一直
-用的是自己的<a href="https://github.com/douban/pygit2">douban pygit2</a>。</p>
+		<h2>libgit2 bindings in Python</h2>
+<p><a href="https://github.com/libgit2/pygit2">Pygit2</a> 是一个 Python 的 C 扩展，实际上
+是 <a href="https://github.com/libgit2/libgit2">libgit2</a> 的 Python 接口。</p>
+<p>我们自己 fork 了 Pygit2 的仓库，做了一些上游不愿意接纳的更改，所以 CODE 一直
+用的是自己的 <a href="https://github.com/douban/pygit2">douban Pygit2</a>。</p>
 <p>跟上游的主要区别：</p>
 <ol>
-<li>把libgit2内嵌到pygit2里面，做了静态编译，不再依赖系统的libgit2版本，方便升级pygit2。</li>
-<li>一直采用最新版本的libgit2，pygit2本身比较稳定，不能及时的使用libgit2最新的方法。</li>
+<li>把 libgit2 内嵌到 Pygit2 里面，做了静态编译，不再依赖系统的 libgit2 版本，方便升级 Pygit2。</li>
+<li>一直采用最新版本的 libgit2，原 Pygit2 项目本身比较稳定，不能及时的使用 libgit2 最新的方法。</li>
 <li>为了性能写了一些特殊的方法。</li>
 </ol>
 <p>当然，我们也把一些修改推回上游了，并且也及时的跟上游同步。</p>
-<p>Pygit2的git功能依赖libgit2，目前基本的对象API和基础操作API都比较成熟了，整体上的git命令还不成熟。
-如果想用pygit2完全替换git命令还是不行的。不过用来加速WEB应用还是够用的，唯一的遗憾是有些内存泄漏。</p>
+<p>Pygit2 的 git 功能依赖 libgit2，目前基本的对象访问 API 和基础操作 API 都比较成熟了，但整体上
+的 git 命令还不成熟。 如果想用 Pygit2 完全替换 git 命令还是不行的。不过用来加速 Web 应用还是
+够用的，唯一的遗憾是有些内存泄漏。</p>
 	</div>
 </div>
                 </div>
