@@ -402,7 +402,6 @@ font-size: 1rem; }
     margin: 0 -20px;
     padding-left: 20px;
     padding-right: 20px;
-    //background: rgba(0, 64, 84, 0.05);
 }
 
 .sidebar .side-nav li:hover > a:first-child {
@@ -411,6 +410,5 @@ font-size: 1rem; }
     margin: 0 -20px;
     padding-left: 20px;
     padding-right: 20px;
-    //background: rgba(0, 64, 84, 0.03);
 }
 
