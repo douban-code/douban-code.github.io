@@ -8,15 +8,16 @@
 <meta name="description" content="">
 <meta name="author" content="code">
 
-<link rel="stylesheet" href="/theme/css/foundation.css" />
-<link rel="stylesheet" href="/theme/css/pygment/code.css" />
-<link rel="stylesheet" href="/theme/css/custom.css" />
-<link rel="stylesheet" href="/theme/css/doc.css" />
+<link rel="stylesheet" href="http://douban-code.github.io/theme/css/foundation.css" />
+<link rel="stylesheet" href="http://douban-code.github.io/theme/css/pygment/code.css" />
+<link rel="stylesheet" href="http://douban-code.github.io/theme/css/custom.css" />
+<link rel="stylesheet" href="http://douban-code.github.io/theme/css/doc.css" />
 
 
-<script src="/theme/js/modernizr.js"></script>
+<script src="http://douban-code.github.io/theme/js/modernizr.js"></script>
 
 <!-- Feeds -->
+<link href="http://douban-code.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Douban CODE Atom Feed" />
 
 
 </head>
@@ -37,7 +38,7 @@
         <!-- mobile side bar nav -->
         <aside class="left-off-canvas-menu">
             <ul class="off-canvas-list">
-                <li><a href="">Home</a></li>
+                <li><a href="http://douban-code.github.io">Home</a></li>
                 <li><label>Categories</label></li>
 
                 <li><label>Places</label></li>
@@ -116,6 +117,7 @@
 <li>create project</li>
 <li>create user</li>
 </ul>
+<hr />
 <h3>准备环境</h3>
 <ul>
 <li>MySQL</li>
@@ -125,7 +127,8 @@
 <li>virtualenv</li>
 <li>git</li>
 </ul>
-<h3>开发</h3>
+<hr />
+<h3>部署</h3>
 <div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/douban-code/code.git</span>
 <span class="n">cd</span> <span class="n">code</span>
 <span class="n">mysql</span> <span class="o">-</span><span class="n">uroot</span> <span class="o">-</span><span class="n">e</span> <span class="err">&#39;</span><span class="n">create</span> <span class="n">database</span> <span class="n">valentine</span><span class="p">;</span><span class="err">&#39;</span>
@@ -135,8 +138,31 @@
 <span class="n">pip</span> <span class="n">install</span> <span class="n">cython</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">setuptools</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
-<span class="n">gunicorn</span> <span class="o">-</span><span class="n">b</span> <span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">8000</span> <span class="n">app</span><span class="o">:</span><span class="n">app</span>
+<span class="n">gunicorn</span> <span class="o">-</span><span class="n">w</span> <span class="mi">2</span> <span class="o">-</span><span class="n">b</span> <span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">8000</span> <span class="n">app</span><span class="o">:</span><span class="n">app</span>
 </pre></div>
+
+
+<hr />
+<h3>定制 config</h3>
+<ul>
+<li>创建自己的 config 文件</li>
+</ul>
+<div class="highlight"><pre><span class="n">touch</span> <span class="p">{</span><span class="n">CODE_REPO</span><span class="p">}</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">local_config</span><span class="p">.</span><span class="n">py</span>
+</pre></div>
+
+
+<ul>
+<li>覆盖 <code>code/config.py</code> 默认设置</li>
+</ul>
+<div class="highlight"><pre><span class="n">vim</span> <span class="p">{</span><span class="n">CODE_REPO</span><span class="p">}</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">local_config</span><span class="p">.</span><span class="n">py</span>
+</pre></div>
+
+
+<hr />
+<h3>FAQ</h3>
+<ol>
+<li>code.config.DOMAIN 是指的是程序运行的域名，包含IP地址和端口，例如: <code>http://127.0.0.1:8000/</code></li>
+</ol>
 	</div>
 </div>
                 </div>
@@ -152,8 +178,8 @@
     </div><!--off-canvas inner-->
 </div><!--off-canvas wrap-->
 
-<script src="/theme/js/jquery.js"></script>
-<script src="/theme/js/foundation.min.js"></script>
+<script src="http://douban-code.github.io/theme/js/jquery.js"></script>
+<script src="http://douban-code.github.io/theme/js/foundation.min.js"></script>
 <script>
     $(document).foundation();
 </script>
