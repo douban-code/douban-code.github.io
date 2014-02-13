@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 AUTHOR = u'code'
-SITENAME = u'Douban Code'
+SITENAME = u'Douban CODE'
 SITEURL = ''
 
 TIMEZONE = 'Asia/Shanghai'
@@ -16,7 +16,7 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 
 # Blogroll
-LINKS = (('Code', '/pages/code.html'),
+LINKS = (('CODE', '/pages/code.html'),
          ('SQLStore', '/pages/sqlstore.html'),
          ('MC', '/pages/mc.html'),
          ('Quixote', '/pages/quixote.html'),
@@ -31,7 +31,7 @@ LINKS = (('Code', '/pages/code.html'),
 
 # Social widget
 SOCIAL = (('Douban@GitHub', 'https://github.com/douban'),
-          ('Code@GitHub', 'https://github.com/douban-code'),)
+          ('CODE@GitHub', 'https://github.com/douban-code'),)
 
 DEFAULT_PAGINATION = 10
 
@@ -39,5 +39,5 @@ DEFAULT_PAGINATION = 10
 #RELATIVE_URLS = True
 THEME = 'themes/foundation'
 FOUNDATION_PYGMENT_THEME = 'code'
-FOUNDATION_FOOTER_TEXT = 'Code © Douban Inc. 2012-2014'
+FOUNDATION_FOOTER_TEXT = 'CODE © Douban Inc. 2012-2014'
 TEMPLATE_PAGES = {'blog.html': 'blog.html', }
