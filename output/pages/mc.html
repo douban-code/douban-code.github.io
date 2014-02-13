@@ -107,18 +107,21 @@
                     </div>
 <div class="row">
 	<div class="small-12 columns">
-		<h2>缓存接口 mc 简介</h2>
-<p>缓存是优化系统性能的工具。豆瓣使用 <a href="http://memcached.org/">Memcached</a> 作为缓存系统，通过一个单实例的变量作为该系统的访问接口。</p>
-<h2>访问途径</h2>
-<p>mc是类cmemcached.Client的单实例对象。在调用它的模块中，要这样引用它</p>
-<div class="highlight"><pre><span class="n">from</span> <span class="n">douban</span><span class="p">.</span><span class="n">mc</span> <span class="n">import</span> <span class="n">mc</span>
+		<hr />
+<h2>Memcached 缓存接口</h2>
+<h3>简介</h3>
+<p>缓存是优化系统性能的工具。豆瓣使用 <a href="http://memcached.org/">Memcached</a> 作为缓存系统，通过一个单
+实例的变量作为该系统的访问接口。</p>
+<h3>访问方法</h3>
+<p>mc 是类 cmemcached.Client 的单实例对象。在调用它的模块中，要这样引用它</p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">code</span><span class="p">.</span><span class="n">libs</span><span class="p">.</span><span class="n">store</span> <span class="n">import</span> <span class="n">mc</span>
 </pre></div>
 
 
-<h2>API</h2>
-<p>Memcached的接口非常简单。它是一个键值对（key-value pair）存储系统，最常用的是设置、获取和删除操作。</p>
-<h3>set：设置</h3>
-<p>在Memcached中，添加操作与修改操作相同。要设置一个值，可以调用：</p>
+<h3>API</h3>
+<p>Memcached 的接口非常简单。它是一个键值对（key-value pair）存储系统，最常用的是设置、获取和删除操作。</p>
+<h4>set：设置</h4>
+<p>在 Memcached 中，添加操作与修改操作相同。要设置一个值，可以调用：</p>
 <div class="highlight"><pre><span class="n">key</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">user_number</span><span class="err">&#39;</span>
 <span class="n">value</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">mc</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
@@ -132,26 +135,26 @@
 
 
 <p>通过第三个参数掺入过期时间，以秒为单位。</p>
-<h3>get，get_multi：获取</h3>
+<h4>get，get_multi：获取</h4>
 <p>随时可以从缓存中重新获得放入的数据：</p>
 <div class="highlight"><pre><span class="n">value</span> <span class="o">=</span> <span class="n">mc</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 
 
-<p>如果这个key在缓存中不存在，或者已经过期，get方法将返回None。</p>
+<p>如果这个 key 在缓存中不存在，或者已经过期，get 方法将返回 None。</p>
 <p>还可以一次获取多个键值的内容，提高访问效率：</p>
 <div class="highlight"><pre><span class="n">values</span> <span class="o">=</span> <span class="n">mc</span><span class="p">.</span><span class="n">get_multi</span><span class="p">([</span><span class="n">key1</span><span class="p">,</span> <span class="n">key2</span><span class="p">,</span> <span class="n">key3</span><span class="p">])</span>
 </pre></div>
 
 
-<h3>delete：删除</h3>
+<h4>delete：删除</h4>
 <p>删除操作会把缓存中的指定键值立即过期：</p>
 <div class="highlight"><pre><span class="n">mc</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 
 
-<h3>incr，decr：自增，自减</h3>
-<p>如果保存值是整形，还可以通过incr和decr对数据直接增加或减少：</p>
+<h4>incr，decr：自增，自减</h4>
+<p>如果保存值是整形，还可以通过 incr 和 decr 对数据直接增加或减少：</p>
 <div class="highlight"><pre><span class="n">mc</span><span class="p">.</span><span class="n">incr</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 <span class="n">mc</span><span class="p">.</span><span class="n">decr</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
@@ -162,26 +165,29 @@
 </pre></div>
 
 
-<h2>缓存原则</h2>
-<p>首先，必须要认识到：缓存是对性能做优化的手段，而不是开发的目的。在开发过程中，缓存应该是最后被引入的内容。代码不应该依赖于缓存，没有缓存支持，代码也应该可以正常运行。</p>
+<h3>缓存原则</h3>
+<p>首先，必须要认识到：缓存是对性能做优化的手段，而不是开发的目的。在开发过程中，
+缓存应该是最后被引入的内容。代码不应该依赖于缓存，没有缓存支持，代码也应该可以正常运行。</p>
 <p>另外，基于数据更新的考虑，对于放入缓存的内容，我们有以下原则：</p>
 <ol>
-<li>类的实例化对象，应该单独缓存，每个key只缓存一个对象</li>
+<li>类的实例化对象，应该单独缓存，每个 key 只缓存一个对象</li>
 <li>禁止缓存类的实例化对象的列表</li>
 <li>缓存的值是列表时，列表中的每个值应该是简单类型，比如对象的id</li>
 </ol>
 <p>这个原则的目的是为了避免这种情况：</p>
-<p>假设，类User的实例user1，同时存在于1000个用户的关注列表中。当user1修改了自己的网名时，我们需要把1000个用户的关注列表全部过期，否则user1在这些用户的列表中的网名永远都不能正确显示。</p>
+<blockquote>
+<p>假设，类 User 的实例 user1，同时存在于 1000 个用户的关注列表中。当 user1 修改了自己的网名时， 我们需要把 1000 个用户的关注列表全部过期，否则 user1 在这些用户的列表中的网名永远都不能正确显示。</p>
+</blockquote>
 <p>这样存储对象的列表的大量过期，会带来很严重的问题：</p>
 <ul>
 <li>缓存过期频繁，缓存命中率过低</li>
 <li>难以维护对象与相关列表的对应关系，甚至无法找到所有缓存该对象的相关列表，执行过期操作</li>
 </ul>
 <p>对应这个例子，豆瓣实际采用的缓存策略是：</p>
-<p>user1只在一个key（u:user1_id）中缓存，其他所有相关的列表，都只存储user_id。</p>
-<p>这样在任何需要使用user1的地方，都可以从 u:user1_id 这个缓存中得到user1的最新信息，从而避免了缓存不一致的问题。</p>
-<h2>命名规则</h2>
-<p>mc命名规范基本为：</p>
+<p>user1 只在一个 key（u:user1_id）中缓存，其他所有相关的列表，都只存储 user_id。</p>
+<p>这样在任何需要使用 user1 的地方，都可以从 u:user1_id 这个缓存中得到 user1 的最新信息，从而避免了缓存不一致的问题。</p>
+<h3>命名规则</h3>
+<p>mc 命名规范基本为：</p>
 <div class="highlight"><pre><span class="err">功能名称</span><span class="o">:</span><span class="n">id</span>
 <span class="err">功能名称</span><span class="o">:</span><span class="n">id</span><span class="o">:</span><span class="n">id2</span><span class="o">:</span><span class="n">id3</span>
 </pre></div>
@@ -193,12 +199,12 @@
 </pre></div>
 
 
-<p>在命名中，冒号“:”用来分割功能名称及各id，下划线“_”用来在功能名称中代替空格。</p>
-<p>在使用缓存时，要注意缓存名称不会出现冲突。在比较早的代码中，缓存名称中的功能名称经常使用缩写。这类缩写在 <code>luzong/__init__.py</code> 中通过手工记录，以防止重名。在现在的代码中，功能名称部分都采用更易读的方式，其中包含所在模块、所在类、所在产品线的代号等，把重名范围限制在模块、类或产品线内部，由产品线工程师维护，负责避免重名。</p>
-<p>注意：</p>
-<p>缓存中key的名字必须是字符串类型，并且不允许包含空格：chr(32)以及小于chr(32)的任何控制字符。utf-8字符是允许的。常见的错误，就是把用户输入的内容未经过滤，直接作为cache key的一部分；需要大家根据自己的应用，生成key时做过滤、变换、转义等必须的处理。</p>
-<h2>应用实例</h2>
-<h3>取内容</h3>
+<p>在命名中，冒号「:」用来分割功能名称及各id，下划线「 _ 」用来在功能名称中代替空格。</p>
+<p>注意：
+缓存中key的名字必须是字符串类型，并且不允许包含空格：chr(32)以及小于chr(32)的任何控制字符。utf-8字符是允许的。
+常见的错误，就是把用户输入的内容未经过滤，直接作为cache key的一部分；需要大家根据自己的应用，生成key时做过滤、变换、转义等必须的处理。</p>
+<h3>应用实例</h3>
+<h4>取内容</h4>
 <p>下面是取一个相册图片示例的方法（代码已经过改造），典型的取一个对象的例子：</p>
 <div class="highlight"><pre> <span class="n">def</span> <span class="n">get_photo</span><span class="p">(</span><span class="n">photo_id</span><span class="p">)</span><span class="o">:</span>
      <span class="n">key</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">photo</span><span class="o">:%</span><span class="n">s</span><span class="err">&#39;</span> <span class="o">%</span> <span class="n">photo_id</span>
@@ -225,10 +231,10 @@
 </pre></div>
 
 
-<p>请通过上面两个例子，重新回顾“缓存原则”。</p>
-<h3>用装饰符cache简化编程</h3>
-<p>用 <code>luzong/utils</code> 中的decorator可以简化取单个对象的例子：</p>
-<div class="highlight"><pre> <span class="n">from</span> <span class="n">luzong</span><span class="p">.</span><span class="n">utils</span> <span class="n">import</span> <span class="n">cache</span>
+<p>请通过上面两个例子，重新回顾「缓存原则」。</p>
+<h4>用装饰符cache简化编程</h4>
+<p>用 <code>code/libs/store.py</code> 中的 decorator 可以简化取单个对象的例子：</p>
+<div class="highlight"><pre> <span class="n">from</span> <span class="n">code</span><span class="p">.</span><span class="n">libs</span><span class="p">.</span><span class="n">store</span> <span class="n">import</span> <span class="n">cache</span>
 
  <span class="err">@</span><span class="n">cache</span><span class="p">(</span><span class="err">&#39;</span><span class="n">photo</span><span class="o">:</span><span class="p">{</span><span class="n">photo_id</span><span class="p">}</span><span class="err">&#39;</span><span class="p">)</span>
  <span class="n">def</span> <span class="n">get_photo</span><span class="p">(</span><span class="n">photo_id</span><span class="p">)</span><span class="o">:</span>
@@ -242,9 +248,11 @@
 </pre></div>
 
 
-<p>这样，开发时只针对数据库编程，在代码完成后针对适当的函数添加cache装饰符，即可完成性能优化的工作。</p>
-<h3>用装饰符pcache简化编程</h3>
-<p><code>luzong/utils</code> 中还有另外一个用于缓存系统的装饰符 pcache。它可以帮助对带有 limit 参数的函数增加缓存支持，一般这些函数对应于网站上的翻页功能：pcache只缓存其中“第一页”内容。</p>
+<p>这样，开发时只针对数据库编程，在代码完成后针对适当的函数添加 cache 装饰符，
+即可完成性能优化的工作。</p>
+<h4>用装饰符pcache简化编程</h4>
+<p><code>code/libs/store.py</code> 中还有另外一个用于缓存系统的装饰符 pcache。它可以帮助对带有 limit 参数的函数增加缓存支持，
+一般这些函数对应于网站上的翻页功能：pcache 只缓存其中「第一页」内容。</p>
 <p>下面是一个例子：</p>
 <div class="highlight"><pre> <span class="err">@</span><span class="n">pcache</span><span class="p">(</span><span class="err">&#39;</span><span class="n">random_group</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">3600</span><span class="p">)</span>
  <span class="n">def</span> <span class="n">random_groups</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span><span class="o">:</span>
@@ -258,7 +266,7 @@
 </pre></div>
 
 
-<p>这里只缓存limit为300时的返回值。如果有请求的limit不超过300，则直接从缓存中的内容返回数据。</p>
+<p>这里只缓存 limit 为 300 时的返回值。如果有请求的 limit 不超过 300，则直接从缓存中的内容返回数据。</p>
 	</div>
 </div>
                 </div>

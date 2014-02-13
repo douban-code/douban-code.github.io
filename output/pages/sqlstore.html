@@ -107,68 +107,74 @@
                     </div>
 <div class="row">
 	<div class="small-12 columns">
-		<h1>数据库接口sqlstore</h1>
-<h2>简介</h2>
-<p>豆瓣使用<a href="http://www.mysql.com/">MySQL</a>数据库。在豆瓣的代码中，有一个简单封装的数据库接口。这个接口屏蔽了后端的复杂性，对使用者，只需要调用少数几个方法即可完成对数据库的访问。</p>
-<h2>访问途径</h2>
-<p>要访问数据库，需要使用 <code>luzong/sqlstore.py</code> 中的store变量。store是类SqlStore的单实例对象。在调用它的模块中，要这样引用它</p>
-<div class="highlight"><pre><span class="n">from</span> <span class="n">luzong</span><span class="p">.</span><span class="n">sqlstore</span> <span class="n">import</span> <span class="n">store</span>
+		<hr />
+<h2>MySQL 数据库接口</h2>
+<h3>简介</h3>
+<p>豆瓣使用 <a href="http://www.mysql.com/">MySQL</a> 数据库。在豆瓣的代码中，有一个简单封装的数据库接口。
+这个接口屏蔽了后端的复杂性，对使用者，只需要调用少数几个方法即可完成对数据库的访问。</p>
+<h3>访问方法</h3>
+<p>要访问数据库，需要使用 <code>code/libs/store.py</code> 中的 store 变量。store 是类 SqlStore 的单实例对象。
+在调用它的模块中，要这样引用它</p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">code</span><span class="p">.</span><span class="n">libs</span><span class="p">.</span><span class="n">store</span> <span class="n">import</span> <span class="n">store</span>
 </pre></div>
 
 
-<p>SqlStore使用第三方模块<a href="http://sourceforge.net/projects/mysql-python/">MySQLdb</a>访问数据库。</p>
-<p>参见：<a href="http://mysql-python.sourceforge.net/MySQLdb.html" title="MySQLdb官方文档">《MySQLdb User's Guide》</a> </p>
-<h2>获得游标</h2>
-<p>在访问数据表之前，首先需要用store的get_cursor方法获得游标::</p>
+<p>SqlStore 使用第三方模块 <a href="http://sourceforge.net/projects/mysql-python/">MySQLdb</a> 访问数据库。</p>
+<p>参见：<a href="http://mysql-python.sourceforge.net/MySQLdb.html" title="MySQLdb官方文档">《MySQLdb User's Guide》</a></p>
+<h3>获得游标</h3>
+<p>在访问数据表之前，首先需要用 store 的 get_cursor 方法获得游标::</p>
 <div class="highlight"><pre><span class="n">cursor</span> <span class="o">=</span> <span class="n">store</span><span class="p">.</span><span class="n">get_cursor</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="err">&#39;</span><span class="n">user</span><span class="err">&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<p>以上是要访问user表时，获得游标的方法。table参数必须正确的传入参数，要与之后执行的SQL语句是同一个表名；否则会导致访问数据失败。</p>
-<p>如果同一个cursor要同时访问多个表，可以传入tables参数来调用</p>
+<p>以上是要访问 user 表时，获得游标的方法。table 参数必须正确的传入参数，要与之后执行的 SQL 语句是同一个表名；
+否则会导致访问数据失败。</p>
+<p>如果同一个 cursor 要同时访问多个表，可以传入 tables 参数来调用</p>
 <div class="highlight"><pre><span class="n">cursor</span> <span class="o">=</span> <span class="n">store</span><span class="p">.</span><span class="n">get_cursor</span><span class="p">(</span><span class="n">tables</span><span class="o">=</span><span class="p">[</span><span class="err">&#39;</span><span class="n">user</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">user2</span><span class="err">&#39;</span><span class="p">])</span>
 </pre></div>
 
 
-<p>这时，要由调用者保证user和user2表是存储在同一个数据库中，否则，运行时会抛出错误。</p>
-<p>警告：get_cursor的ro参数已经作废。如果在任何代码中发现这个参数还在使用，请删掉。</p>
-<h2>执行SQL</h2>
-<p>在获得游标之后，就可以通过游标执行SQL语句了。调用execute方法执行</p>
+<p>这时，要由调用者保证 user 和 user2 表是存储在同一个数据库中，否则，运行时会抛出错误。</p>
+<p>警告：get_cursor 的 ro 参数已经作废。如果在任何代码中发现这个参数还在使用，请删掉。</p>
+<h3>执行 SQL</h3>
+<p>在获得游标之后，就可以通过游标执行 SQL 语句了。调用 execute 方法执行</p>
 <div class="highlight"><pre><span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="err">&#39;</span><span class="n">select</span> <span class="n">id</span><span class="p">,</span> <span class="n">screen_name</span> <span class="n">from</span> <span class="n">user</span> <span class="n">where</span> <span class="n">id</span><span class="o">=%</span><span class="n">s</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
 </pre></div>
 
 
-<p>多个参数时::</p>
+<p>多个参数时</p>
 <div class="highlight"><pre><span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="err">&#39;</span><span class="n">insert</span> <span class="n">into</span> <span class="n">user2</span> <span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">id</span><span class="p">)</span> <span class="err">&#39;</span>
                <span class="err">&#39;</span><span class="n">values</span><span class="p">(</span><span class="o">%</span><span class="n">s</span><span class="p">,</span> <span class="o">%</span><span class="n">s</span><span class="p">,</span> <span class="o">%</span><span class="n">s</span><span class="p">)</span><span class="err">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">id</span><span class="p">))</span>
 </pre></div>
 
 
-<p>警告：注意传递SQL参数的方法，必须把SQL和参数分别传给execute。禁止用Python语法拼装SQL语句。以下写法会带来很大的安全隐患（SQL注入），是禁止使用的写法：</p>
+<p>警告：注意传递 SQL 参数的方法，必须把 SQL 和参数分别传给 execute。禁止用 Python 语法拼装 SQL 语句。
+以下写法会带来很大的安全隐患（SQL 注入），是禁止使用的写法：</p>
 <div class="highlight"><pre><span class="cp"># 有安全漏洞的调用方式，不应采用！</span>
 <span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="err">&#39;</span><span class="n">select</span> <span class="n">id</span><span class="p">,</span> <span class="n">screen_name</span> <span class="n">from</span> <span class="n">user</span> <span class="n">where</span> <span class="n">id</span><span class="o">=%</span><span class="n">s</span><span class="err">&#39;</span> <span class="o">%</span> <span class="n">user_id</span><span class="p">)</span>
 </pre></div>
 
 
-<p>注意：在被迫必须拼装SQL语句时，必须获得团队技术负责人的确认，完成后要进行代码复审。并且，在拼装SQL的语句前，要有注释，说明原因。</p>
-<p>execute执行UPDATE、DELETE等语句后，会有返回值，通过返回值，可以知道这次执行共影响到多少行记录。</p>
-<h2>获取数据</h2>
-<p>执行SELECT之后，需要获得返回数据，通常有三种方式：fetchone，fetchall，迭代器。</p>
+<p>注意：在被迫必须拼装 SQL 语句时，必须获得团队技术负责人的确认，完成后要进行代码复审。并且，
+在拼装 SQL 的语句前，要有注释，说明原因。</p>
+<p>execute 执行 UPDATE、DELETE 等语句后，会有返回值，通过返回值，可以知道这次执行共影响到多少行记录。</p>
+<h3>获取数据</h3>
+<p>执行 SELECT 之后，需要获得返回数据，通常有三种方式：fetchone，fetchall，迭代器。</p>
 <ol>
 <li>
 <p>fetchone</p>
-<p>fetchone可以获得一行返回数据</p>
+<p>fetchone 可以获得一行返回数据</p>
 <div class="highlight"><pre><span class="n">row</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">.</span><span class="n">fetchone</span><span class="p">()</span>
 <span class="k">if</span> <span class="n">row</span><span class="o">:</span>
     <span class="n">id</span><span class="p">,</span> <span class="n">screen_name</span> <span class="o">=</span> <span class="n">row</span>
 </pre></div>
 
 
-<p>如果没有数据，fetchone将返回None。</p>
+<p>如果没有数据，fetchone 将返回 None。</p>
 </li>
 <li>
 <p>fetchall</p>
-<p>fetchall可以一次性获取所有检索的数据::</p>
+<p>fetchall 可以一次性获取所有检索的数据</p>
 <div class="highlight"><pre><span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">.</span><span class="n">fetchall</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">row</span> <span class="n">in</span> <span class="n">rows</span><span class="o">:</span>
     <span class="n">id</span><span class="p">,</span> <span class="n">screen_name</span> <span class="o">=</span> <span class="n">row</span>
@@ -176,11 +182,11 @@
 </pre></div>
 
 
-<p>如果没有数据，fetchall将返回一个空列表。</p>
+<p>如果没有数据，fetchall 将返回一个空列表。</p>
 </li>
 <li>
 <p>迭代器</p>
-<p>cursor对象在执行SELECT之后，可以作为一个迭代器（Iterator）使用，顺序获取所有数据::</p>
+<p>cursor 对象在执行 SELECT 之后，可以作为一个迭代器（Iterator）使用，顺序获取所有数据</p>
 <div class="highlight"><pre><span class="k">for</span> <span class="n">row</span> <span class="n">in</span> <span class="n">cursor</span><span class="o">:</span>
     <span class="n">id</span><span class="p">,</span> <span class="n">screen_name</span> <span class="o">=</span> <span class="n">row</span>
     <span class="err">#</span><span class="p">...</span>
@@ -190,19 +196,21 @@
 <p>获取多条数据时，推荐使用迭代器。因为迭代器使用简单，而且可以随处理随获取数据，速度快，节省内存。</p>
 </li>
 </ol>
-<h2>数据库事务处理</h2>
-<p>豆瓣的数据库访问接口没有开启自动提交机制。所以，当执行INSERT、UPDATE、DELETE等修改数据的SQL语句后，必须显式调用提交命令::</p>
+<h3>数据库事务处理</h3>
+<p>豆瓣的数据库访问接口没有开启自动提交机制。所以，当执行 INSERT、UPDATE、DELETE 等修改数据的 SQL 语句后，
+必须显式调用提交命令</p>
 <div class="highlight"><pre><span class="n">cursor</span><span class="p">.</span><span class="n">connection</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
 </pre></div>
 
 
-<p>数据处理失败，需要回滚已修改数据时，要调用::</p>
+<p>数据处理失败，需要回滚已修改数据时，要调用</p>
 <div class="highlight"><pre><span class="n">cursor</span><span class="p">.</span><span class="n">connection</span><span class="p">.</span><span class="n">rollback</span><span class="p">()</span>
 </pre></div>
 
 
-<h2>访问单表时的简化</h2>
-<p>对于只访问一个表的情况，可以使用更简便的调用方式：直接使用store执行和获取数据。下面是一个例子</p>
+<h3>访问单表时的简化</h3>
+<p>对于只访问一个表的情况，可以使用更简便的调用方式：直接使用 store 执行和获取数据。
+下面是一个例子</p>
 <div class="highlight"><pre><span class="n">rows</span> <span class="o">=</span> <span class="n">store</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="err">&#39;</span><span class="n">select</span> <span class="n">id</span><span class="p">,</span> <span class="n">screen_name</span> <span class="n">from</span> <span class="n">user</span> <span class="n">where</span> <span class="n">id</span><span class="o">=%</span><span class="n">s</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">id</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">id</span><span class="p">,</span> <span class="n">screen_name</span> <span class="n">in</span> <span class="n">rows</span><span class="o">:</span>
     <span class="err">#</span><span class="p">...</span>
@@ -213,8 +221,8 @@
 </pre></div>
 
 
-<p>store直接提供了游标的execute、commit、rollback方法，调用execute时会自动处理get_cursor，使用合适的游标执行SQL语句。</p>
-<h2>关于表结构</h2>
+<p>store 直接提供了游标的 execute、commit、rollback 方法，调用 execute 时会自动处理 get_cursor，使用合适的游标执行 SQL 语句。</p>
+<h3>关于表结构</h3>
 <p>豆瓣有多种存储设备，当要增加新表时，需要注意：</p>
 <ul>
 <li>较大的数据，如长文本，不应放入数据库（应放在分布式数据库DoubanDB中）</li>
