@@ -8,6 +8,7 @@ Date: 2014-02-01 08:00
 * create project
 * create user
 
+---
 ### 准备环境
 
 * MySQL
@@ -17,7 +18,8 @@ Date: 2014-02-01 08:00
 * virtualenv
 * git
 
-### 开发
+---
+### 部署
 
 ```
 git clone https://github.com/douban-code/code.git
@@ -29,5 +31,25 @@ virtualenv venv
 pip install cython
 pip install -U setuptools
 pip install -r requirements.txt
-gunicorn -b 127.0.0.1:8000 app:app
+gunicorn -w 2 -b 127.0.0.1:8000 app:app
 ```
+
+---
+### 定制 config
+
+* 创建自己的 config 文件
+
+```
+touch {CODE_REPO}/code/local_config.py
+```
+
+* 覆盖 `code/config.py` 默认设置
+
+```
+vim {CODE_REPO}/code/local_config.py
+```
+
+---
+### FAQ
+
+1. code.config.DOMAIN 是指的是程序运行的域名，包含IP地址和端口，例如: `http://127.0.0.1:8000/`
