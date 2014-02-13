@@ -104,28 +104,40 @@
                 <div class="large-9 medium-8 columns">
                     <div class="row">
                         <div class="small-12 columns">
-                            <h1>CODE</h1>
+                            <h1>Getting started</h1>
                         </div>
                     </div>
 <div class="row">
 	<div class="small-12 columns">
 		<hr />
-<h3>CODE 是什么含义</h3>
-<p>C: Community O: Original D: Developer E: Eldamar</p>
-<hr />
-<h3>CODE 的起源</h3>
-<p>CODE 起源于豆瓣内部，豆瓣最开始使用的版本控制系统是 svn，当然也
-尝试过 mercurial，最终切换到了 git。</p>
-<p>CODE 本身并不是一个强设计的系统，从改 Trac 开始，一点一点成长到现在的样子。
-现在他开源了，希望更多的人可以使用 CODE，希望更多的人可以一起开发 CODE。</p>
-<hr />
-<h3>CODE 的用途</h3>
-<p>CODE 在豆瓣内部的主要用途：</p>
-<ol>
-<li>存储代码仓库。</li>
-<li>代码审查，工程师日常的沟通。</li>
-<li>与持续集成，上线系统的联动。</li>
-</ol>
+<p>目前 CODE 仅开放了一个框架，支持：</p>
+<ul>
+<li>clone &amp; push project</li>
+<li>create project</li>
+<li>create user</li>
+</ul>
+<h3>准备环境</h3>
+<ul>
+<li>MySQL</li>
+<li>Memcached</li>
+<li>Python</li>
+<li>pip</li>
+<li>virtualenv</li>
+<li>git</li>
+</ul>
+<h3>开发</h3>
+<ul>
+<li>git clone https://github.com/douban-code/code</li>
+<li>cd code</li>
+<li>mysql -uroot -e 'create database valentine;'</li>
+<li>mysql -uroot -D valentine &lt; code/databases/schema.sql</li>
+<li>virtualenv venv</li>
+<li>. venv/bin/activate</li>
+<li>pip install cython</li>
+<li>pip install -U setuptools</li>
+<li>pip install -r requirements.txt</li>
+<li>gunicorn -b 127.0.0.1:8000 app:app</li>
+</ul>
 	</div>
 </div>
                 </div>

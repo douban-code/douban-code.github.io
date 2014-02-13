@@ -3,7 +3,7 @@ Date: 2014-02-07 18:00
 
 ---
 ### Linguist 是什么
-[Linguist](https://github.com/douban/linguist) 是 [github-linguist](https://github.com/github/linguist) 的 Python 版本 Clone, 主要功能如下:
+[Linguist](https://github.com/douban/linguist) 是 [github-linguist](https://github.com/github/linguist) 的 Python 实现, 主要功能如下:
 
 - 识别编程语言、标记语言及配置文件
 - 代码高亮

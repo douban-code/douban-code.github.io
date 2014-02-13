@@ -97,6 +97,8 @@
                         <ul class="side-nav">
                             <li><a href="/">Home</a></li>
                             <li class="divider"></li>
+                            <li><a href="/pages/getting-started.html">Getting started</a></li>
+                            <li class="divider"></li>
                             {% for name, link in LINKS %}
                             <li><a href="{{ link }}">{{ name }}</a></li>
                             {% endfor %}
@@ -106,8 +108,6 @@
                             {% for name, link in SOCIAL|sort %}
                             <li><a href="{{ link }}">{{ name }}</a></li>
                             {% endfor %}
-                            <li class="divider"></li>
-                            <li><a href="/blog.html">Contributing</a></li>
                             <li class="divider"></li>
                             <li class="heading">Tag</li>
                             {% for tag in tag_cloud %}
