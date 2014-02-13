@@ -1,0 +1,261 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Douban CODE</title>
+<meta name="description" content="">
+<meta name="author" content="code">
+
+<link rel="stylesheet" href="/theme/css/foundation.css" />
+<link rel="stylesheet" href="/theme/css/pygment/code.css" />
+<link rel="stylesheet" href="/theme/css/custom.css" />
+<link rel="stylesheet" href="/theme/css/doc.css" />
+
+
+<script src="/theme/js/modernizr.js"></script>
+
+<!-- Feeds -->
+
+
+</head>
+<body>
+<div class="off-canvas-wrap">
+    <div class="inner-wrap">
+        <!-- mobile top bar to activate nav -->
+        <nav class="tab-bar show-for-small">
+            <section class="left-small">
+                <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+            </section>
+
+            <section class="middle tab-bar-section">
+                <h1 class="title">Douban&nbsp;CODE</h1>
+            </section>
+        </nav>
+
+        <!-- mobile side bar nav -->
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li><a href="">Home</a></li>
+                <li><label>Categories</label></li>
+
+                <li><label>Places</label></li>
+                <li><a href="/pages/code.html">CODE</a></li>
+                <li><a href="/pages/sqlstore.html">SQLStore</a></li>
+                <li><a href="/pages/mc.html">MC</a></li>
+                <li><a href="/pages/quixote.html">Quixote</a></li>
+                <li><a href="/pages/orz.html">ORZ</a></li>
+                <li><a href="/pages/ellen.html">Ellen</a></li>
+                <li><a href="/pages/pygit2.html">Pygit2</a></li>
+                <li><a href="/pages/gpack.html">GPack</a></li>
+                <li><a href="/pages/linguist.html">Linguist</a></li>
+                <li><a href="/pages/scanner.html">Scanner</a></li>
+                <li><a href="/pages/mikoto.html">Mikoto</a></li>
+                <li><a href="/pages/misaka.html">Misaka</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+
+
+
+                <li><label>Links</label></li>
+                <li><a href="https://github.com/douban-code">CODE@GitHub</a></li>
+                <li><a href="https://github.com/douban">Douban@GitHub</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Page Content and Sidebar -->
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="large-3 medium-4 columns sidebar">
+                    <div class="hide-for-small">
+                        <p class="text-center">
+                            <a href="/"><img src="/images/logo.svg" width="80px"></a>
+                        </p>
+                        <ul class="side-nav">
+                            <li><a href="/">Home</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/pages/getting-started.html">Getting started</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/pages/code.html">CODE</a></li>
+                            <li><a href="/pages/sqlstore.html">SQLStore</a></li>
+                            <li><a href="/pages/mc.html">MC</a></li>
+                            <li><a href="/pages/quixote.html">Quixote</a></li>
+                            <li><a href="/pages/orz.html">ORZ</a></li>
+                            <li><a href="/pages/ellen.html">Ellen</a></li>
+                            <li><a href="/pages/pygit2.html">Pygit2</a></li>
+                            <li><a href="/pages/gpack.html">GPack</a></li>
+                            <li><a href="/pages/linguist.html">Linguist</a></li>
+                            <li><a href="/pages/scanner.html">Scanner</a></li>
+                            <li><a href="/pages/mikoto.html">Mikoto</a></li>
+                            <li><a href="/pages/misaka.html">Misaka</a></li>
+                            <li><a href="/pages/about.html">About</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/blog.html">Blog</a></li>
+                            <li class="divider"></li>
+                            <li><a href="https://github.com/douban-code">CODE@GitHub</a></li>
+                            <li><a href="https://github.com/douban">Douban@GitHub</a></li>
+                            <li class="divider"></li>
+                            <li class="heading">Tag</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End Sidebar -->
+                <!-- Main Content -->
+                <div class="large-9 medium-8 columns">
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <h1>ORZ</h1>
+                        </div>
+                    </div>
+<div class="row">
+	<div class="small-12 columns">
+		<hr />
+<h3>ORZ 是什么</h3>
+<p><a href="https://github.com/douban/douban-orz">ORZ</a> 不是 ORM，只是封装了基础的数据库 CRUD 及其 Cache 管理，
+并尽可能提供基于Pythonic的方式进行扩展的数据层。</p>
+<h3>简介</h3>
+<p>假如数据库声明是这样的</p>
+<div class="highlight"><pre><span class="n">CREATE</span> <span class="n">TABLE</span> <span class="err">`</span><span class="n">dummy_yummy</span><span class="err">`</span> <span class="p">(</span>
+  <span class="err">`</span><span class="n">id</span><span class="err">`</span> <span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="kt">unsigned</span> <span class="n">NOT</span> <span class="nb">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="err">`</span><span class="n">uid</span><span class="err">`</span> <span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span>
+  <span class="err">`</span><span class="n">username</span><span class="err">`</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="n">NOT</span> <span class="nb">NULL</span><span class="p">,</span>
+  <span class="err">`</span><span class="n">subject_id</span><span class="err">`</span> <span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="n">NOT</span> <span class="nb">NULL</span><span class="p">,</span>
+  <span class="err">`</span><span class="n">user_id</span><span class="err">`</span> <span class="kt">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="n">NOT</span> <span class="nb">NULL</span><span class="p">,</span>
+  <span class="err">`</span><span class="n">subtype</span><span class="err">`</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+  <span class="n">PRIMARY</span> <span class="n">KEY</span> <span class="p">(</span><span class="err">`</span><span class="n">id</span><span class="err">`</span><span class="p">),</span>
+  <span class="n">KEY</span> <span class="err">`</span><span class="n">user_id</span><span class="err">`</span> <span class="p">(</span><span class="err">`</span><span class="n">user_id</span><span class="err">`</span><span class="p">),</span>
+  <span class="n">KEY</span> <span class="err">`</span><span class="n">subject_id_subtype_idx</span><span class="err">`</span> <span class="p">(</span><span class="err">`</span><span class="n">subject_id</span><span class="err">`</span><span class="p">,</span> <span class="err">`</span><span class="n">subtype</span><span class="err">`</span><span class="p">),</span>
+  <span class="n">KEY</span> <span class="err">`</span><span class="n">uid</span><span class="err">`</span> <span class="p">(</span><span class="err">`</span><span class="n">uid</span><span class="err">`</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="n">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span> <span class="n">COMMENT</span><span class="o">=</span><span class="err">&#39;&#39;</span><span class="p">;</span>
+</pre></div>
+
+
+<p>之前我们会这样写</p>
+<div class="highlight"><pre><span class="n">class</span> <span class="n">DummyYummy</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">OBJ_CACHE</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">dummyyummy</span><span class="o">-</span><span class="n">obj</span><span class="o">:%</span><span class="n">s</span><span class="err">&#39;</span>
+    <span class="n">USER_INDEX_CACHE</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">dummyyummy</span><span class="o">-</span><span class="n">user</span><span class="o">:%</span><span class="n">s</span><span class="err">&#39;</span>
+    <span class="n">SUBJECT_SUBTYPE_INDEX_CACHE</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">dummyyummy</span><span class="o">-</span><span class="n">subject</span><span class="o">:%</span><span class="n">s</span><span class="o">|</span><span class="n">subtype</span><span class="o">:%</span><span class="n">s</span><span class="err">&#39;</span>
+    <span class="n">UID_INDEX_CACHE</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">dummyyummy</span><span class="o">-</span><span class="n">uid</span><span class="o">:%</span><span class="n">s</span><span class="err">&#39;</span>
+
+    <span class="n">def</span> <span class="n">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">subject_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">subtype</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">id</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">uid</span> <span class="o">=</span> <span class="n">uid</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="n">subject_id</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="n">user_id</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">subtype</span> <span class="o">=</span> <span class="n">subtype</span>
+
+
+    <span class="err">@</span><span class="n">classmethod</span>
+    <span class="n">def</span> <span class="n">create</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">subject_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">subtype</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">id</span> <span class="o">=</span> <span class="n">store</span><span class="p">.</span><span class="n">exexute</span><span class="p">(</span><span class="err">&#39;</span><span class="n">insert</span> <span class="n">into</span> <span class="n">dummy_yummy</span> <span class="p">(</span><span class="err">`</span><span class="n">uid</span><span class="err">`</span><span class="p">,</span> <span class="err">`</span><span class="n">username</span><span class="err">`</span><span class="p">,</span> <span class="err">`</span><span class="n">subject_id</span><span class="err">`</span><span class="p">,</span> <span class="err">`</span><span class="n">user_id</span><span class="err">`</span><span class="p">,</span> <span class="err">`</span><span class="n">subtype</span><span class="err">`</span><span class="p">)</span><span class="err">&#39;</span>
+                           <span class="err">&#39;</span><span class="n">values</span> <span class="p">(</span><span class="o">%</span><span class="n">s</span><span class="p">,</span> <span class="o">%</span><span class="n">s</span><span class="p">,</span> <span class="o">%</span><span class="n">s</span><span class="p">,</span> <span class="o">%</span><span class="n">s</span><span class="p">,</span> <span class="o">%</span><span class="n">s</span><span class="p">)</span><span class="err">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">subject_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">subtype</span><span class="p">))</span>
+        <span class="n">store</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+
+        <span class="n">mc</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">cls</span><span class="p">.</span><span class="n">SUBJECT_SUBTYPE_INDEX_CACHE</span> <span class="o">%</span> <span class="p">(</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">subtype</span><span class="p">))</span>
+        <span class="n">mc</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">cls</span><span class="p">.</span><span class="n">UID_INDEX_CACHE</span> <span class="o">%</span> <span class="n">uid</span><span class="p">)</span>
+        <span class="n">mc</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">cls</span><span class="p">.</span><span class="n">USER_INDEX_CACHE</span> <span class="o">%</span> <span class="n">user_id</span><span class="p">)</span>
+
+        <span class="n">ins</span> <span class="o">=</span> <span class="n">cls</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">subject_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">subtype</span><span class="p">)</span>
+        <span class="n">mc</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">cls</span><span class="p">.</span><span class="n">OBJ_CACHE</span> <span class="o">%</span> <span class="n">ins</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">ind</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ins</span>
+
+    <span class="n">def</span> <span class="n">update_subject_id</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">subject_id</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">store</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="err">&#39;</span><span class="n">update</span> <span class="n">dummy_yummy</span> <span class="n">set</span> <span class="n">subject_id</span><span class="o">=%</span><span class="n">s</span> <span class="n">where</span> <span class="n">id</span><span class="o">=%</span><span class="n">s</span><span class="err">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">id</span><span class="p">))</span>
+        <span class="n">store</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+
+        <span class="n">mc</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">SUBJECT_SUBTYPE_INDEX_CACHE</span> <span class="o">%</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">subtype</span><span class="p">))</span>
+
+        <span class="n">self</span><span class="p">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="n">subject_id</span>
+
+        <span class="n">mc</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">SUBJECT_SUBTYPE_INDEX_CACHE</span> <span class="o">%</span> <span class="p">(</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">subtype</span><span class="p">))</span>
+        <span class="n">mc</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">OBJ_CACHE</span> <span class="o">%</span> <span class="n">self</span><span class="p">.</span><span class="n">id</span><span class="p">)</span>
+
+    <span class="err">@</span><span class="n">classmethod</span>
+    <span class="n">def</span> <span class="n">gets</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">ids</span><span class="p">)</span><span class="o">:</span>
+        <span class="n">mc</span><span class="p">.</span><span class="n">get_multi</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">cls</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">id</span><span class="o">=</span><span class="n">id</span><span class="p">)</span> <span class="k">for</span> <span class="n">id</span> <span class="n">in</span> <span class="n">ids</span><span class="p">]</span>
+
+
+    <span class="err">@</span><span class="n">cache</span><span class="p">(</span><span class="n">USER_INDEX_CACHE</span> <span class="o">%</span> <span class="s">&quot;{user_id}&quot;</span><span class="p">)</span>
+    <span class="n">def</span> <span class="n">_gets_by_user_id</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">id</span> <span class="k">for</span> <span class="n">id</span><span class="p">,</span> <span class="n">in</span> <span class="n">store</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&quot;select id from dummy_yummy where user_id = %s&quot;</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)]</span>
+
+    <span class="n">def</span> <span class="n">gets_by_user_id</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="n">cls</span><span class="p">.</span><span class="n">gets</span><span class="p">(</span><span class="n">cls</span><span class="p">.</span><span class="n">_gets_by_user_id</span><span class="p">(</span><span class="n">user</span><span class="p">))</span>
+
+    <span class="err">@</span><span class="n">cache</span><span class="p">(</span><span class="n">SUBJECT_SUBTYPE_INDEX_CACHE</span> <span class="o">%</span> <span class="p">(</span><span class="s">&quot;{subject_id}&quot;</span><span class="p">,</span> <span class="s">&quot;{subtype}&quot;</span><span class="p">))</span>
+    <span class="n">def</span> <span class="n">_gets_by_subject_id_and_subtype</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">subject_id</span><span class="p">,</span> <span class="n">subtype</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">id</span> <span class="k">for</span> <span class="n">id</span><span class="p">,</span> <span class="n">in</span> <span class="n">store</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&quot;select id from dummy_yummy where subject_id = %s and subtype = %s&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">subtype</span><span class="p">))]</span>
+
+    <span class="n">def</span> <span class="n">gets_by_subject_id_and_subtype</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">subject_id</span><span class="p">,</span> <span class="n">subtype</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="n">cls</span><span class="p">.</span><span class="n">gets</span><span class="p">(</span><span class="n">cls</span><span class="p">.</span><span class="n">_gets_by_subject_id_and_subtype</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">subject_id</span><span class="p">,</span> <span class="n">subtype</span><span class="p">))</span>
+
+    <span class="err">@</span><span class="n">cache</span><span class="p">(</span><span class="n">UID_INDEX_CACHE</span> <span class="o">%</span> <span class="s">&quot;{uid}&quot;</span><span class="p">)</span>
+    <span class="n">def</span> <span class="n">_gets_by_uid</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">uid</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">id</span> <span class="k">for</span> <span class="n">id</span><span class="p">,</span> <span class="n">in</span> <span class="n">store</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&quot;select id from dummy_yummy where uid = %s&quot;</span><span class="p">,</span> <span class="n">uid</span><span class="p">)]</span>
+
+    <span class="n">def</span> <span class="n">gets_by_uid</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">uid</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="n">cls</span><span class="p">.</span><span class="n">gets</span><span class="p">(</span><span class="n">cls</span><span class="p">.</span><span class="n">_gets_by_uid</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">uid</span><span class="p">))</span>
+</pre></div>
+
+
+<p>然后我们这样用</p>
+<div class="highlight"><pre><span class="n">Dummy</span><span class="p">.</span><span class="n">gets_by_subject_id_and_subtype</span><span class="p">(</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">subtype</span><span class="p">)</span><span class="o">:</span>
+<span class="n">Dummy</span><span class="p">.</span><span class="n">gets_by_uid</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span>
+<span class="n">Dummy</span><span class="p">.</span><span class="n">gets_by_user_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+
+
+<span class="n">dummy_obj</span> <span class="o">=</span> <span class="n">Dummy</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">uid</span><span class="o">=</span><span class="n">uid</span><span class="p">,</span> <span class="n">subject_id</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">subtype</span><span class="o">=</span><span class="n">subtype</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+
+<span class="n">dummy_obj</span><span class="p">.</span><span class="n">update_subject_id</span><span class="p">(</span><span class="n">subject_id</span><span class="o">=</span><span class="n">subject_id</span><span class="p">)</span>
+</pre></div>
+
+
+<p>使用ORZ以后我们这样写</p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">ORZ</span><span class="p">.</span><span class="n">exports</span> <span class="n">import</span> <span class="n">OrzBase</span>
+
+<span class="n">setup</span><span class="p">(</span><span class="n">your_store</span><span class="p">,</span> <span class="n">your_mc</span><span class="p">)</span>
+
+<span class="n">class</span> <span class="n">DummyYummy</span><span class="p">(</span><span class="n">OrzBase</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">__orz_table__</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">dummy_yummy</span><span class="err">&#39;</span>
+    <span class="n">uid</span> <span class="o">=</span> <span class="n">OrzField</span><span class="p">(</span><span class="n">as_key</span><span class="o">=</span><span class="n">OrzField</span><span class="p">.</span><span class="n">KeyType</span><span class="p">.</span><span class="n">ONLY_INDEX</span><span class="p">)</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">OrzField</span><span class="p">()</span>
+    <span class="n">subject_id</span> <span class="o">=</span> <span class="n">OrzField</span><span class="p">(</span><span class="n">as_key</span><span class="o">=</span><span class="n">OrzField</span><span class="p">.</span><span class="n">KeyType</span><span class="p">.</span><span class="n">ONLY_INDEX</span><span class="p">)</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">OrzField</span><span class="p">(</span><span class="n">as_key</span><span class="o">=</span><span class="n">OrzField</span><span class="p">.</span><span class="n">KeyType</span><span class="p">.</span><span class="n">ONLY_INDEX</span><span class="p">)</span>
+    <span class="n">subtype</span> <span class="o">=</span> <span class="n">OrzField</span><span class="p">(</span><span class="n">as_key</span><span class="o">=</span><span class="n">OrzField</span><span class="p">.</span><span class="n">KeyType</span><span class="p">.</span><span class="n">ONLY_INDEX</span><span class="p">)</span>
+</pre></div>
+
+
+<p>于是我们这样用</p>
+<div class="highlight"><pre><span class="n">Dummy</span><span class="p">.</span><span class="n">gets_by</span><span class="p">(</span><span class="n">uid</span><span class="o">=</span><span class="n">uid</span><span class="p">)</span>
+<span class="n">Dummy</span><span class="p">.</span><span class="n">gets_by</span><span class="p">(</span><span class="n">subject_id</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">subtype</span><span class="o">=</span><span class="n">subtype</span><span class="p">)</span>
+<span class="n">Dummy</span><span class="p">.</span><span class="n">gets_by</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+
+<span class="n">dummy_obj</span> <span class="o">=</span> <span class="n">Dummy</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">uid</span><span class="o">=</span><span class="n">uid</span><span class="p">,</span> <span class="n">subject_id</span><span class="o">=</span><span class="n">subject_id</span><span class="p">,</span> <span class="n">subtype</span><span class="o">=</span><span class="n">subtype</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+
+<span class="n">dummy_obj</span><span class="p">.</span><span class="n">subject_id</span> <span class="o">=</span> <span class="n">subject_id</span>
+<span class="n">dummy_obj</span><span class="p">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+	</div>
+</div>
+                </div>
+                <!-- End Main Content -->
+            </div>
+
+            <!-- Footer -->
+            <footer class="row">
+                    <p>CODE © Douban Inc. 2012-2014</p>
+            </footer>
+            <!-- End Footer -->
+        <a class="exit-off-canvas"></a>
+    </div><!--off-canvas inner-->
+</div><!--off-canvas wrap-->
+
+<script src="/theme/js/jquery.js"></script>
+<script src="/theme/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+</body>
+</html>
