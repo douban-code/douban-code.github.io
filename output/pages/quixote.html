@@ -158,12 +158,12 @@ quixote 就会把该函数的任何字符串输出作为响应返回给用户。
 <p>_q_exception_handler 提供了捕获异常，显示定制的错误页面的机会。可以去 <code>code/views/__init__.py</code> 文件查看例子代码。</p>
 <p>关于 Quixote 更加详细的介绍，请参考 Hongqn 编写的 <a href="http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/AbtQuixote">Quixote ~ 豆瓣动力核心</a> 一文。</p>
 <h3>web安全</h3>
-<p>用户访问豆瓣，是通过web界面。web安全是豆瓣服务安全的重要一环。在web安全中，XSS、CSRF、SQL注入等是常见的漏洞。
-在豆瓣代码中，为了保障安全，有些专门的机制。ck就是其中之一。</p>
-<p>ck 是challenge key的缩写，它是每个用户不同的，用途是避免CSRF攻击。所有会造成数据变更的请求，如发帖、关注朋友、删除日记等，都需要在form中带有ck，
-以便校验该请求的确是由用户浏览器发起的访问，而不是其他程序构造、诱骗浏览器自动发起的请求。所有POST都会被自动检查ck。</p>
-<p>另外，在web页面上显示用户提交数据时，也需要做转义，以免运行了恶意代码。使用ptl的htmltext、code/views/utils里的safescape方法，转义在mako中会自动进行，
-只要不仅使用n过滤器，处理用户数据后再在页面显示，可以避免此类XSS漏洞。</p>
+<p>用户访问豆瓣，是通过 Web 界面。Web 安全是豆瓣服务安全的重要一环。在 Web 安全中，XSS、CSRF、SQL 注入等是常见的漏洞。
+在豆瓣代码中，为了保障安全，有些专门的机制。ck 就是其中之一。</p>
+<p>ck 是 challenge key 的缩写，它是每个用户不同的，用途是避免 CSRF 攻击。所有会造成数据变更的请求，如发帖、关注朋友、删除日记等，都需要在 form 中带有 ck，
+以便校验该请求的确是由用户浏览器发起的访问，而不是其他程序构造、诱骗浏览器自动发起的请求。所有 POST 都会被自动检查 ck。</p>
+<p>另外，在 Web 页面上显示用户提交数据时，也需要做转义，以免运行了恶意代码。使用 ptl 的 htmltext、code/views/utils 里的 safescape 方法，转义在 mako 中会自动进行，
+只要不仅使用 n 过滤器，处理用户数据后再在页面显示，可以避免此类 XSS 漏洞。</p>
 	</div>
 </div>
                 </div>
