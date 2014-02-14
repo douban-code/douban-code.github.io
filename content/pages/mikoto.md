@@ -9,21 +9,21 @@ Date: 2014-02-14 21:00
 ### 具体效果
 
 ```
-# 富士之风
+    # 富士之风
 
-扇携富士风 送礼回江户
+    扇携富士风 送礼回江户
 
-```python
->>> import this
+    ```python
+    >>> import this
+    ```
+
+    - [x] 显示标题
+    - [x] 显示代码
+    - [x] 显示俳句
+    - [ ] つづき
+
+    :beer:
+
 ```
 
-- [x] 显示标题
-- [x] 显示代码
-- [x] 显示俳句
-- [ ] つづき
-
-:beer:
-
-```
-
-![渲染结果](content/images/mikoto_result.png)
+![渲染结果](/images/mikoto_result.png)
