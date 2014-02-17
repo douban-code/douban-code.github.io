@@ -51,7 +51,7 @@ Date: 2014-02-13 08:00
             mc.delete(cls.USER_INDEX_CACHE % user_id)
 
             ins = cls(id, uid, username, subject_id, user_id, subtype)
-            mc.set(cls.OBJ_CACHE % ins.id, ind)
+            mc.set(cls.OBJ_CACHE % ins.id, ins)
             return ins
 
         def update_subject_id(self, subject_id):
