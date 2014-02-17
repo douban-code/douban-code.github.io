@@ -22,7 +22,7 @@ Date: 2014-02-01 08:00
 ### 部署
 
 ```
-git clone https://github.com/douban-code/code.git
+git clone https://github.com/douban/code.git
 cd code
 mysql -uroot -e 'create database valentine;'
 mysql -uroot -D valentine < code/databases/schema.sql
