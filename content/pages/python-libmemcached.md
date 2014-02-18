@@ -11,7 +11,7 @@ Python-libmemcached 安装依赖 libmemcached， 豆瓣使用的 libmemcached �
 ```
 sudo apt-get install build-essential g++
 wget  https://github.com/xtao/douban-patched/raw/master/libmemcached-douban-1.0.18.tar.gz
-tar zxf libmemcached-1.0.18.tar.gz
+tar zxf libmemcached-douban-1.0.18.tar.gz
 cd libmemcached-1.0.18
 ./configure && make && sudo make install
 cd ..
