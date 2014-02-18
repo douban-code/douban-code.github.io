@@ -13,7 +13,7 @@ Date: 2014-02-01 08:00
 
 * MySQL
 * Memcached
-* Python
+* Python 2.7 +
 * pip
 * virtualenv
 * git
