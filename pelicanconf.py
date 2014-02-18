@@ -19,6 +19,7 @@ TRANSLATION_FEED_ATOM = None
 LINKS = (('CODE', '/pages/code.html'),
          ('SQLStore', '/pages/sqlstore.html'),
          ('MC', '/pages/mc.html'),
+         ('Python-libmemcached', '/pages/python-libmemcached.html'),
          ('Quixote', '/pages/quixote.html'),
          ('ORZ', '/pages/orz.html'),
          ('Ellen', '/pages/ellen.html'),
