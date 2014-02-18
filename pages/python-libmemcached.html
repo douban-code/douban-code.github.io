@@ -103,8 +103,46 @@
                 <!-- End Sidebar -->
                 <!-- Main Content -->
                 <div class="large-9 medium-8 columns">
-	<ul>
-	</ul>
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <h1>Python-libmemcached</h1>
+                        </div>
+                    </div>
+<div class="row">
+	<div class="small-12 columns">
+		<hr />
+<p>Python-libmemcached 安装依赖 libmemcached， 豆瓣使用的 libmemcached 是自己打过 patch 的。</p>
+<h3>Ubuntu</h3>
+<h4>Install patched package</h4>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">g</span><span class="o">++</span>
+<span class="n">wget</span>  <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/xtao/douban-patched/raw/master/libmemcached-douban-1.0.18.tar.gz</span>
+<span class="n">tar</span> <span class="n">zxf</span> <span class="n">libmemcached</span><span class="o">-</span><span class="mf">1.0.18</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+<span class="n">cd</span> <span class="n">libmemcached</span><span class="o">-</span><span class="mf">1.0.18</span>
+<span class="p">.</span><span class="o">/</span><span class="n">configure</span> <span class="o">&amp;&amp;</span> <span class="n">make</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+<span class="n">cd</span> <span class="p">..</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">python</span><span class="o">-</span><span class="n">libmemcached</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">libmemcached</span><span class="o">*</span>
+<span class="n">sudo</span> <span class="n">ldconfig</span>
+</pre></div>
+
+
+<h4>Install with patch</h4>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">g</span><span class="o">++</span>
+<span class="n">wget</span> <span class="n">https</span><span class="o">:</span><span class="c1">//launchpad.net/libmemcached/1.0/1.0.18/+download/libmemcached-1.0.18.tar.gz</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/douban/python-libmemcached</span>
+<span class="n">tar</span> <span class="n">zxf</span> <span class="n">libmemcached</span><span class="o">-</span><span class="mf">1.0.18</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
+<span class="n">cd</span> <span class="n">libmemcached</span><span class="o">-</span><span class="mf">1.0.18</span>
+<span class="n">patch</span> <span class="o">-</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="p">..</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">libmemcached</span><span class="o">/</span><span class="n">patches</span><span class="o">/</span><span class="mf">1.0</span><span class="o">/</span><span class="n">behavior</span><span class="p">.</span><span class="n">patch</span>
+<span class="n">patch</span> <span class="o">-</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="p">..</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">libmemcached</span><span class="o">/</span><span class="n">patches</span><span class="o">/</span><span class="mf">1.0</span><span class="o">/</span><span class="n">empty_string</span><span class="p">.</span><span class="n">patch</span> 
+<span class="n">patch</span> <span class="o">-</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="p">..</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">libmemcached</span><span class="o">/</span><span class="n">patches</span><span class="o">/</span><span class="mf">1.0</span><span class="o">/</span><span class="n">touch_expire</span><span class="o">-</span><span class="mf">1.0</span><span class="p">.</span><span class="n">patch</span>
+<span class="p">.</span><span class="o">/</span><span class="n">configure</span> <span class="o">&amp;&amp;</span> <span class="n">make</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+<span class="n">cd</span> <span class="p">..</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">python</span><span class="o">-</span><span class="n">libmemcached</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">libmemcached</span><span class="o">*</span>
+<span class="n">sudo</span> <span class="n">ldconfig</span>
+</pre></div>
+	</div>
+</div>
                 </div>
                 <!-- End Main Content -->
             </div>
