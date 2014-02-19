@@ -25,7 +25,7 @@ Date: 2014-02-01 08:00
 git clone https://github.com/douban/code.git
 cd code
 mysql -uroot -e 'create database valentine;'
-mysql -uroot -D valentine < code/databases/schema.sql
+mysql -uroot -D valentine < vilya/databases/schema.sql
 virtualenv venv
 . venv/bin/activate
 pip install cython
@@ -40,16 +40,17 @@ gunicorn -w 2 -b 127.0.0.1:8000 app:app
 * 创建自己的 config 文件
 
 ```
-touch {CODE_REPO}/code/local_config.py
+cd {CODE_REPO}
+cp vilya/local_config.py.tmpl vilya/local_config.py
 ```
 
-* 覆盖 `code/config.py` 默认设置
+* 覆盖 `vilya/config.py` 默认设置
 
 ```
-vim {CODE_REPO}/code/local_config.py
+vim vilya/local_config.py
 ```
 
 ---
 ### FAQ
 
-1. code.config.DOMAIN 是指的是程序运行的域名，包含IP地址和端口，例如: `http://127.0.0.1:8000/`
+1. vilya.config.DOMAIN 是指的是程序运行的域名，包含IP地址和端口，例如: `http://127.0.0.1:8000/`

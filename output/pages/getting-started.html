@@ -132,7 +132,7 @@
 <div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/douban/code.git</span>
 <span class="n">cd</span> <span class="n">code</span>
 <span class="n">mysql</span> <span class="o">-</span><span class="n">uroot</span> <span class="o">-</span><span class="n">e</span> <span class="err">&#39;</span><span class="n">create</span> <span class="n">database</span> <span class="n">valentine</span><span class="p">;</span><span class="err">&#39;</span>
-<span class="n">mysql</span> <span class="o">-</span><span class="n">uroot</span> <span class="o">-</span><span class="n">D</span> <span class="n">valentine</span> <span class="o">&lt;</span> <span class="n">code</span><span class="o">/</span><span class="n">databases</span><span class="o">/</span><span class="n">schema</span><span class="p">.</span><span class="n">sql</span>
+<span class="n">mysql</span> <span class="o">-</span><span class="n">uroot</span> <span class="o">-</span><span class="n">D</span> <span class="n">valentine</span> <span class="o">&lt;</span> <span class="n">vilya</span><span class="o">/</span><span class="n">databases</span><span class="o">/</span><span class="n">schema</span><span class="p">.</span><span class="n">sql</span>
 <span class="n">virtualenv</span> <span class="n">venv</span>
 <span class="p">.</span> <span class="n">venv</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">activate</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="n">cython</span>
@@ -147,21 +147,22 @@
 <ul>
 <li>创建自己的 config 文件</li>
 </ul>
-<div class="highlight"><pre><span class="n">touch</span> <span class="p">{</span><span class="n">CODE_REPO</span><span class="p">}</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">local_config</span><span class="p">.</span><span class="n">py</span>
+<div class="highlight"><pre><span class="n">cd</span> <span class="p">{</span><span class="n">CODE_REPO</span><span class="p">}</span>
+<span class="n">cp</span> <span class="n">vilya</span><span class="o">/</span><span class="n">local_config</span><span class="p">.</span><span class="n">py</span><span class="p">.</span><span class="n">tmpl</span> <span class="n">vilya</span><span class="o">/</span><span class="n">local_config</span><span class="p">.</span><span class="n">py</span>
 </pre></div>
 
 
 <ul>
-<li>覆盖 <code>code/config.py</code> 默认设置</li>
+<li>覆盖 <code>vilya/config.py</code> 默认设置</li>
 </ul>
-<div class="highlight"><pre><span class="n">vim</span> <span class="p">{</span><span class="n">CODE_REPO</span><span class="p">}</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">local_config</span><span class="p">.</span><span class="n">py</span>
+<div class="highlight"><pre><span class="n">vim</span> <span class="n">vilya</span><span class="o">/</span><span class="n">local_config</span><span class="p">.</span><span class="n">py</span>
 </pre></div>
 
 
 <hr />
 <h3>FAQ</h3>
 <ol>
-<li>code.config.DOMAIN 是指的是程序运行的域名，包含IP地址和端口，例如: <code>http://127.0.0.1:8000/</code></li>
+<li>vilya.config.DOMAIN 是指的是程序运行的域名，包含IP地址和端口，例如: <code>http://127.0.0.1:8000/</code></li>
 </ol>
 	</div>
 </div>
