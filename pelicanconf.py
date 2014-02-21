@@ -41,5 +41,4 @@ DEFAULT_PAGINATION = 10
 #RELATIVE_URLS = True
 THEME = 'themes/foundation'
 FOUNDATION_PYGMENT_THEME = 'code'
-FOUNDATION_FOOTER_TEXT = 'CODE © Douban Inc. 2012-2014'
 TEMPLATE_PAGES = {'blog.html': 'blog.html', }
