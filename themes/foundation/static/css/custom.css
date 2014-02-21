@@ -117,6 +117,7 @@ p {
 
 footer p {
     margin: 6px 0 0;
-    font-size: 0.66667rem;
+    font-size: 0.8rem;
     color: #666666;
+    text-align: center;
 }
